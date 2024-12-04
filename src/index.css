@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.radius5xl{
+    border-radius: 10px 100px 100px 10px;
+}
+.roundedLogin{
+    border-radius: 100px 10px 10px 100px;
+}
+
+input, textarea, select {
+    font-size: 16px;
+  }
