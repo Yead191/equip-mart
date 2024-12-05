@@ -85,8 +85,8 @@ const MyEquipments = () => {
                                         <div className='flex items-center gap-1'>
                                             <Link to={`/equipments/${equipment._id}`} className='btn btn-xs text-xs text-white bg-black'><FaFile />
                                             </Link>
-                                            <button className='btn btn-xs text-xs'><FaEdit />
-                                            </button>
+                                            <Link to={`/updateEquipment/${equipment?._id}`}  className='btn btn-xs text-xs'><FaEdit />
+                                            </Link>
                                             <button onClick={() => handleDeleteProduct(equipment?._id)} className='btn btn-xs text-xs btn-error text-white'>X</button>
                                         </div>
                                     </div>
