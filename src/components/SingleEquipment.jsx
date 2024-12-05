@@ -46,7 +46,7 @@ const SingleEquipment = () => {
                         <div className="flex items-center gap-5 my-6">
                             {stockStatus.length > 0 ? (
                                 <p className="flex items-center gap-2">
-                                    <GoDotFill className="text-green-500" /> In Stock ({stockStatus.length})
+                                    <GoDotFill className="text-green-500" /> In Stock ({stockStatus})
                                 </p>
                             ) : (
                                 <p className="flex items-center gap-2">

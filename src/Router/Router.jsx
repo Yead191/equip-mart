@@ -10,6 +10,7 @@ import Login from '../Pages/Login';
 import PrivateRoute from '../Routes/PrivateRoute';
 import MyEquipments from '../Pages/MyEquipments';
 import SingleEquipment from '../components/SingleEquipment';
+import UpdateEquipment from '../components/UpdateEquipment';
 
 const router = createBrowserRouter([
     {
@@ -43,7 +44,12 @@ const router = createBrowserRouter([
             },
             {
                 path:'/equipments/:id',
-                element: <SingleEquipment></SingleEquipment>,
+                element: <PrivateRoute><SingleEquipment></SingleEquipment></PrivateRoute>,
+                loader: ({params})=> fetch(`http://localhost:5000/equipments/${params.id}`)
+            },
+            {
+                path: '/updateEquipment/:id',
+                element: <PrivateRoute><UpdateEquipment></UpdateEquipment></PrivateRoute>,
                 loader: ({params})=> fetch(`http://localhost:5000/equipments/${params.id}`)
             }
         ]

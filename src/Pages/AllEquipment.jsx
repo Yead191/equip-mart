@@ -30,7 +30,7 @@ const AllEquipment = () => {
                 <tbody>
                     {/* row 1 */}
                     {
-                        equipments?.map((equipment, index)=> <EquipmentsTable key={equipment._id} idx={index} equipment={equipment} ></EquipmentsTable>)
+                        equipments?.map((equipment, index)=> <EquipmentsTable equipments={equipments} setEquipments={setEquipments} key={equipment._id} idx={index} equipment={equipment} ></EquipmentsTable>)
                     }
                     
 

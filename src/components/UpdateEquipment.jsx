@@ -1,15 +1,25 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../AuthProvider/AuthProvider';
-import { Link, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
+const UpdateEquipment = () => {
+    const navigate = useNavigate()
+    const data = useLoaderData()
+    const {
+        _id,
+        name,
+        photo,
+        category,
+        description,
+        price,
+        rating,
+        customization,
+        processingTime,
+        stockStatus,
+        email,
+        userName, } = data
 
-const AddEquipment = () => {
-    const { user } = useContext(AuthContext)
-    const navigate = useNavigate('/')
-
-
-    const handleSubmit = e => {
+    const handleUpdate = e => {
         e.preventDefault()
         const form = e.target
         const name = form.name.value
@@ -23,8 +33,7 @@ const AddEquipment = () => {
         const stockStatus = form.stockStatus.value
         const email = form.email.value
         const userName = form.userName.value
-
-        const equipmentDetails = {
+        const updateDetails = {
             name,
             photo,
             category,
@@ -37,44 +46,48 @@ const AddEquipment = () => {
             email,
             userName,
         }
-        // console.log(equipmentDetails);
-        fetch('http://localhost:5000/equipments', {
-            method: "POST",
+
+        fetch(`http://localhost:5000/equipments/${_id}`, {
+            method: 'PUT',
             headers: {
-                'content-type': 'application/json'
+                'content-type' : 'application/json'
             },
-            body: JSON.stringify(equipmentDetails)
+            body: JSON.stringify(updateDetails)
         })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
+        .then(res=> res.json())
+        .then(data =>{
+            console.log(data);
+            if (data.modifiedCount > 0) {
                 Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: "Your Item has been added!",
+                    title: 'Success!',
+                    text: 'Product Updated successfully!',
+                    icon: 'success',
                     showConfirmButton: false,
                     timer: 1500
-                });
+                })
                 form.reset()
                 navigate('/allEquipment')
-            })
+
+            }
+        })
+
+
     }
-
-
     return (
         <div>
             <div className="md:w-10/12 mx-auto bg-[#F4F3F0] shadow rounded-lg  p-16 my-16">
-                <Link to={'/'} className="text-blue-500 font-semibold mb-4">
-                    &larr; Back to home
-                </Link>
-                <h2 className="text-3xl font-bold  text-center mb-8">Add New Item</h2>
-                <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <button onClick={() => window.history.back()} className="text-blue-500 font-semibold mb-4">
+                    &larr; Go Back
+                </button>
+                <h2 className="text-3xl font-bold  text-center mb-8">Update <span className='text-4xl text-[#2d248a]'>{name}</span> </h2>
+                <form onSubmit={handleUpdate} className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                     <div>
                         <label className="block text-sm font-medium mb-2">Item Name</label>
                         <input
                             type="text"
                             name="name"
+                            defaultValue={name}
                             placeholder='Enter Item Name'
                             className="w-full border rounded-lg p-2"
                             required
@@ -85,6 +98,7 @@ const AddEquipment = () => {
                         <input
                             type="text"
                             name="photo"
+                            defaultValue={photo}
                             placeholder='Enter Product Image URL'
                             className="w-full border rounded-lg p-2"
                             required
@@ -94,6 +108,7 @@ const AddEquipment = () => {
                         <label className="block text-sm font-medium mb-2">Category</label>
                         <select
                             name="category"
+                            defaultValue={category}
                             className="w-full border rounded-lg p-2"
                             required
                         >
@@ -114,6 +129,7 @@ const AddEquipment = () => {
                         <label className="block text-sm font-medium mb-2">Description</label>
                         <textarea
                             name="description"
+                            defaultValue={description}
                             placeholder='Enter Product Description'
                             className="w-full border rounded-lg p-2"
                             required
@@ -124,6 +140,7 @@ const AddEquipment = () => {
                         <input
                             type="number"
                             name="price"
+                            defaultValue={price}
                             placeholder='Enter Product Price'
                             className="w-full border rounded-lg p-2"
                             required
@@ -133,6 +150,7 @@ const AddEquipment = () => {
                         <label className="block text-sm font-medium mb-2">Rating</label>
                         <select
                             name="rating"
+                            defaultValue={rating}
                             className="w-full border rounded-lg p-2"
                             required
                         >
@@ -149,6 +167,7 @@ const AddEquipment = () => {
                         <input
                             type="text"
                             name="customization"
+                            defaultValue={customization}
                             placeholder='Customization'
                             className="w-full border rounded-lg p-2"
                         />
@@ -158,6 +177,7 @@ const AddEquipment = () => {
                         <input
                             type="text"
                             name="processingTime"
+                            defaultValue={processingTime}
                             placeholder='Enter processing time in days!'
                             className="w-full border rounded-lg p-2"
                             required
@@ -168,6 +188,7 @@ const AddEquipment = () => {
                         <input
                             type="number"
                             name="stockStatus"
+                            defaultValue={stockStatus}
                             placeholder='How many stock available?'
                             className="w-full border rounded-lg p-2"
                             required
@@ -178,7 +199,7 @@ const AddEquipment = () => {
                         <input
                             type="email"
                             name='email'
-                            value={user.email}
+                            value={email}
                             readOnly
                             className="w-full border rounded-lg p-2 bg-gray-200"
                         />
@@ -187,7 +208,7 @@ const AddEquipment = () => {
                         <label className="block text-sm font-medium mb-2">User Name</label>
                         <input
                             type="text"
-                            value={user.displayName}
+                            value={userName}
                             name='userName'
                             readOnly
                             className="w-full border rounded-lg p-2 bg-gray-200"
@@ -198,7 +219,7 @@ const AddEquipment = () => {
                             type="submit"
                             className="w-8/12 mx-auto  bg-blue-500 text-white font-medium py-2 px-4 rounded-lg hover:bg-blue-600"
                         >
-                            Add Item
+                            Update Item
                         </button>
                     </div>
                 </form>
@@ -208,6 +229,4 @@ const AddEquipment = () => {
     );
 };
 
-export default AddEquipment;
-
-//
+export default UpdateEquipment;
