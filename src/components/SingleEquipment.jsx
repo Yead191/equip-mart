@@ -103,8 +103,12 @@ const SingleEquipment = () => {
                                 {customization}
                             </p>
                             <p className="text-lg font-thin">
-                                <span className="font-bold">Processing Time: </span>
-                                {processingTime}
+                                <span className="font-bold">Delivery Time: </span>
+                                {processingTime} days
+                            </p>
+                            <p className="text-lg font-thin">
+                                <span className="font-bold">Category: </span>
+                                {category}
                             </p>
                             <p className="text-lg font-thin">
                                 <span className="font-bold">Product Owner: </span>

@@ -86,11 +86,14 @@ const UpdateEquipment = () => {
     }
     return (
         <div>
-            <div className="md:w-10/12 mx-auto bg-[#F4F3F0] shadow rounded-lg py-8 px-3 md:p-16 my-16">
+            <div className="h-[280px] bg-[#2d248a] relative">
+                <h2 className="text-3xl lg:text-4xl font-bold text-center text-white pt-8">Update {name} </h2>
+            </div>
+            <div className="w-11/12 md:w-10/12 mx-auto bg-[#F4F3F0] shadow rounded-lg py-8 px-3 md:p-16 my-16 relative -mt-40">
                 <button onClick={() => window.history.back()} className="text-blue-500 font-semibold mb-4">
                     &larr; Go Back
                 </button>
-                <h2 className="text-3xl font-bold  text-center mb-8">Update <span className='text-4xl text-[#2d248a]'>{name}</span> </h2>
+                
                 <form onSubmit={handleUpdate} className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                     <div>
@@ -230,15 +233,15 @@ const UpdateEquipment = () => {
                             type="submit"
                             disabled={isDisabled}
                             className={`w-8/12 mx-auto py-2 px-4 rounded-lg font-medium ${isDisabled
-                                    ? 'bg-gray-400 '
-                                    : 'bg-blue-500 text-white hover:bg-blue-600'
+                                ? 'bg-gray-400 '
+                                : 'bg-blue-500 text-white hover:bg-blue-600'
                                 }`}
                         >
                             {
-                                isDisabled ? 
-                                <p>Haha! Nice Try, but u don't have permission! </p>
-                                :
-                                <p>Update Item </p>
+                                isDisabled ?
+                                    <p>Haha! Nice Try, but u don't have permission! </p>
+                                    :
+                                    <p>Update Item </p>
 
                             }
                         </button>

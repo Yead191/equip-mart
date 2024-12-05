@@ -63,11 +63,13 @@ const AddEquipment = () => {
 
     return (
         <div>
-            <div className="md:w-10/12 mx-auto bg-[#F4F3F0] shadow rounded-lg  py-8 px-3 md:p-16 my-16">
+            <div className="h-[280px] bg-[#2d248a] relative">
+                <h1 className='text-3xl lg:text-4xl font-bold text-center text-white pt-8'>Add New Item</h1>
+            </div>
+            <div className="w-11/12 md:w-10/12 mx-auto bg-[#F4F3F0] shadow rounded-lg  py-8 px-3 md:p-16 my-16 relative -mt-40">
                 <button onClick={() => window.history.back()} className="text-blue-500 font-semibold mb-4">
                     &larr; Go Back
                 </button>
-                <h2 className="text-3xl font-bold  text-center mb-8">Add New Item</h2>
                 <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                     <div>
@@ -101,7 +103,7 @@ const AddEquipment = () => {
                                 Select Category
                             </option>
                             <option>Bats</option>
-                            <option>Kit Bags</option>
+                            <option>KitBags</option>
                             <option>Helmets</option>
                             <option>Caps</option>
                             <option>Balls</option>
@@ -196,7 +198,7 @@ const AddEquipment = () => {
                     <div className="col-span-1 md:col-span-2 flex mt-3">
                         <button
                             type="submit"
-                            className="w-8/12 mx-auto  bg-blue-500 text-white font-medium py-2 px-4 rounded-lg hover:bg-blue-600"
+                            className="w-8/12 mx-auto  bg-[#2d248a] text-white font-medium py-2 px-4 rounded-lg hover:bg-blue-600"
                         >
                             Add Item
                         </button>

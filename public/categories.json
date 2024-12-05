@@ -1,0 +1,38 @@
+[
+    {
+      "categoryId": "1",
+      "categoryName": "Bats",
+      "categoryImage": "https://i.ibb.co.com/WyT3rcz/Bats-8d236189-d24c-4a20-a7da-c905731814ab-300x.jpg"
+    },
+    {
+      "categoryId": "2",
+      "categoryName": "KitBags",
+      "categoryImage": "https://i.ibb.co.com/TL34dWD/Bags-a2a01db6-8a74-454e-8654-869e4ba7a46c-300x.jpg"
+    },
+    {
+      "categoryId": "3",
+      "categoryName": "Helmets",
+      "categoryImage": "https://i.ibb.co.com/pj2CqPH/Helmets-300x.jpg"
+    },
+    {
+      "categoryId": "4",
+      "categoryName": "Caps",
+      "categoryImage": "https://i.ibb.co.com/Y2Y1Sm5/TU6815-009-OS-CAVIAR-DAHLIAPURPLE-03-600x.jpg"
+    },
+    {
+      "categoryId": "5",
+      "categoryName": "Balls",
+      "categoryImage": "https://i.ibb.co.com/BcCHT24/Cricket-Balls-07ec835b-59a5-42d3-8c7a-264475972d60-300x.jpg"
+    },
+    {
+      "categoryId": "6",
+      "categoryName": "Shoes",
+      "categoryImage": "https://i.ibb.co.com/VNRFy2H/Shoes-300x.jpg"
+    },
+    {
+      "categoryId": "7",
+      "categoryName": "Accessories",
+      "categoryImage": "https://i.ibb.co.com/pKhG1kf/Cricket-Sets-300x.jpg"
+    }
+  ]
+  

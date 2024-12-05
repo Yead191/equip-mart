@@ -60,23 +60,23 @@ const MyEquipments = () => {
 
     return (
         <div className="">
-            <div className="h-[200px] bg-[#2d248a] relative flex justify-center items-center">
-                <h1 className="text-center text-3xl lg:text-4xl font-bold text-white">My Equipments</h1>
+            <div className="h-[280px] bg-[#2d248a] relative">
+                <h1 className='text-3xl lg:text-4xl font-bold text-center text-white pt-8'>My Equipments</h1>
             </div>
 
 
-            <div className='w-full grid grid-cols-1 md:grid-cols-3 gap-8 overflow-x-auto my-8 md:w-10/12 mx-auto '>
+            <div className='w-full grid grid-cols-1 md:grid-cols-3 gap-8 overflow-x-auto my-8 md:w-10/12 mx-auto relative -mt-40 bg-base-100 rounded-lg px-10 py-12 shadow-xl '>
 
 
                 {
                     myEquipment?.map((equipment) => (
                         <div key={equipment._id}>
-                            <div class="flex flex-col items-center justify-center w-full  mx-auto">
-                                <div class="w-full h-80 bg-gray-300 bg-center bg-cover rounded-lg shadow-md" >
-                                    <img className='w-full h-full object-cover overflow-hidden' src={equipment.photo} alt="" />
+                            <div class="flex flex-col items-center justify-center w-full  mx-auto transition hover:scale-105 duration-700 ">
+                                <div class="w-full h-72 bg-gray-300 bg-center bg-cover rounded-lg shadow-md" >
+                                    <img className='w-full h-full object-cover overflow-hidden rounded-lg' src={equipment.photo} alt="" />
                                 </div>
 
-                                <div class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
+                                <div class="w-3/4 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-8/12 dark:bg-gray-800">
                                     <h3 class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">{equipment.name}</h3>
 
                                     <div class="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700">

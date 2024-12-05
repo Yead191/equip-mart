@@ -13,6 +13,7 @@ import SingleEquipment from '../components/SingleEquipment';
 import UpdateEquipment from '../components/UpdateEquipment';
 import ScrollToTop from '../components/ScrollToTop';
 import ErrorPage from '../Pages/ErrorPage';
+import HomeProducts from '../components/HomeProducts';
 
 const router = createBrowserRouter([
     {
@@ -25,7 +26,15 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: ()=> fetch('../categories.json'),
+                children: [
+                    {
+                        path: '/category/:category',
+                        element: <HomeProducts></HomeProducts>,
+                        loader: ({params})=> fetch(`http://localhost:5000/category/${params.category}`)
+                    }
+                ]
             },
             {
                 path: '/addEquipment',
