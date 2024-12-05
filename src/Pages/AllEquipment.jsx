@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 
 import EquipmentsTable from '../components/EquipmentsTable';
@@ -36,6 +36,7 @@ const AllEquipment = () => {
 
                 </tbody>
             </table>
+            <Link to={'/addEquipment'} className='btn bg-[#2d248a] px-5 my-6 text-white hover:text-[#2d248a]'>Add Your Product </Link>
         </div>
     );
 };

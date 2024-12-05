@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const UpdateEquipment = () => {
+    const { user } = useContext(AuthContext)
+    // const [disable, setDisable] = useState(false)
     const navigate = useNavigate()
     const data = useLoaderData()
     const {
@@ -18,6 +21,14 @@ const UpdateEquipment = () => {
         stockStatus,
         email,
         userName, } = data
+
+    // if (email !== user.email) {
+    //     setDisable(true)
+    //     return
+
+    // }
+    const isDisabled = email !== user.email
+
 
     const handleUpdate = e => {
         e.preventDefault()
@@ -50,32 +61,32 @@ const UpdateEquipment = () => {
         fetch(`http://localhost:5000/equipments/${_id}`, {
             method: 'PUT',
             headers: {
-                'content-type' : 'application/json'
+                'content-type': 'application/json'
             },
             body: JSON.stringify(updateDetails)
         })
-        .then(res=> res.json())
-        .then(data =>{
-            console.log(data);
-            if (data.modifiedCount > 0) {
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'Product Updated successfully!',
-                    icon: 'success',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-                form.reset()
-                navigate('/allEquipment')
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Product Updated successfully!',
+                        icon: 'success',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    form.reset()
+                    navigate('/allEquipment')
 
-            }
-        })
+                }
+            })
 
 
     }
     return (
         <div>
-            <div className="md:w-10/12 mx-auto bg-[#F4F3F0] shadow rounded-lg  p-16 my-16">
+            <div className="md:w-10/12 mx-auto bg-[#F4F3F0] shadow rounded-lg py-8 px-3 md:p-16 my-16">
                 <button onClick={() => window.history.back()} className="text-blue-500 font-semibold mb-4">
                     &larr; Go Back
                 </button>
@@ -217,9 +228,19 @@ const UpdateEquipment = () => {
                     <div className="col-span-1 md:col-span-2 flex mt-3">
                         <button
                             type="submit"
-                            className="w-8/12 mx-auto  bg-blue-500 text-white font-medium py-2 px-4 rounded-lg hover:bg-blue-600"
+                            disabled={isDisabled}
+                            className={`w-8/12 mx-auto py-2 px-4 rounded-lg font-medium ${isDisabled
+                                    ? 'bg-gray-400 '
+                                    : 'bg-blue-500 text-white hover:bg-blue-600'
+                                }`}
                         >
-                            Update Item
+                            {
+                                isDisabled ? 
+                                <p>Haha! Nice Try, but u don't have permission! </p>
+                                :
+                                <p>Update Item </p>
+
+                            }
                         </button>
                     </div>
                 </form>

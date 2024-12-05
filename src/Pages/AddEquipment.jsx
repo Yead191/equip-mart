@@ -63,10 +63,10 @@ const AddEquipment = () => {
 
     return (
         <div>
-            <div className="md:w-10/12 mx-auto bg-[#F4F3F0] shadow rounded-lg  p-16 my-16">
-                <Link to={'/'} className="text-blue-500 font-semibold mb-4">
-                    &larr; Back to home
-                </Link>
+            <div className="md:w-10/12 mx-auto bg-[#F4F3F0] shadow rounded-lg  py-8 px-3 md:p-16 my-16">
+                <button onClick={() => window.history.back()} className="text-blue-500 font-semibold mb-4">
+                    &larr; Go Back
+                </button>
                 <h2 className="text-3xl font-bold  text-center mb-8">Add New Item</h2>
                 <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
 

@@ -11,11 +11,17 @@ import PrivateRoute from '../Routes/PrivateRoute';
 import MyEquipments from '../Pages/MyEquipments';
 import SingleEquipment from '../components/SingleEquipment';
 import UpdateEquipment from '../components/UpdateEquipment';
+import ScrollToTop from '../components/ScrollToTop';
+import ErrorPage from '../Pages/ErrorPage';
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <Root></Root>,
+        element: (<>
+            <ScrollToTop></ScrollToTop>
+            <Root></Root>
+        </>),
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -32,7 +38,7 @@ const router = createBrowserRouter([
             {
                 path: '/allEquipment',
                 element: <AllEquipment></AllEquipment>,
-                loader: ()=> fetch('http://localhost:5000/equipments')
+                loader: () => fetch('http://localhost:5000/equipments')
             },
             {
                 path: '/login',
@@ -43,17 +49,17 @@ const router = createBrowserRouter([
                 element: <Register></Register>
             },
             {
-                path:'/equipments/:id',
+                path: '/equipments/:id',
                 element: <PrivateRoute><SingleEquipment></SingleEquipment></PrivateRoute>,
-                loader: ({params})=> fetch(`http://localhost:5000/equipments/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/equipments/${params.id}`)
             },
             {
                 path: '/updateEquipment/:id',
                 element: <PrivateRoute><UpdateEquipment></UpdateEquipment></PrivateRoute>,
-                loader: ({params})=> fetch(`http://localhost:5000/equipments/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/equipments/${params.id}`)
             }
         ]
     }
-]) 
+])
 
 export default router;

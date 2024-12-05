@@ -65,14 +65,14 @@ const MyEquipments = () => {
             </div>
 
 
-            <div className='w-full grid grid-cols-1 md:grid-cols-3 gap-6 overflow-x-auto my-8 md:w-8/12 mx-auto'>
+            <div className='w-full grid grid-cols-1 md:grid-cols-3 gap-8 overflow-x-auto my-8 md:w-10/12 mx-auto '>
 
 
                 {
                     myEquipment?.map((equipment) => (
                         <div key={equipment._id}>
                             <div class="flex flex-col items-center justify-center w-full  mx-auto">
-                                <div class="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md" >
+                                <div class="w-full h-80 bg-gray-300 bg-center bg-cover rounded-lg shadow-md" >
                                     <img className='w-full h-full object-cover overflow-hidden' src={equipment.photo} alt="" />
                                 </div>
 

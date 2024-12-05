@@ -22,10 +22,12 @@ const SingleEquipment = () => {
         userName, } = product
     return (
         <div>
-            <div className="h-[280px] bg-[#2d248a] relative"></div>
+            <div className="h-[280px] bg-[#2d248a] relative"> 
+                <h1 className='text-3xl lg:text-4xl font-bold text-center text-white pt-8'>Product Details</h1>
+            </div>
 
-            <div className="md:w-8/12 mx-auto relative -mt-44 mb-28">
-                <div className="grid grid-cols-1 md:grid-cols-6 items-center shadow-2xl bg-white  rounded-xl p-4">
+            <div className="md:w-8/12 md:mx-auto relative -mt-44 mb-28  mx-3">
+                <div className="grid grid-cols-1 md:grid-cols-6 items-center shadow-2xl bg-white  rounded-xl p-4 ">
 
                     <div className="col-span-4">
                         <button
@@ -36,7 +38,7 @@ const SingleEquipment = () => {
                         </button>
                         {/* img */}
                         <img
-                            className="lg:h-[570px] object-cover overflow-hidden rounded-xl"
+                            className="lg:h-[570px] w-full lg:w-[700px] object-cover overflow-hidden rounded-xl"
                             src={photo}
                             alt=""
                         />
