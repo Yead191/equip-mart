@@ -9,6 +9,7 @@ import Register from '../Pages/Register';
 import Login from '../Pages/Login';
 import PrivateRoute from '../Routes/PrivateRoute';
 import MyEquipments from '../Pages/MyEquipments';
+import SingleEquipment from '../components/SingleEquipment';
 
 const router = createBrowserRouter([
     {
@@ -39,6 +40,11 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path:'/equipments/:id',
+                element: <SingleEquipment></SingleEquipment>,
+                loader: ({params})=> fetch(`http://localhost:5000/equipments/${params.id}`)
             }
         ]
     }

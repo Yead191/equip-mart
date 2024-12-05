@@ -6,7 +6,7 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const EquipmentsTable = ({ equipment, idx }) => {
     const { user } = useContext(AuthContext)
-    const { category, email, price, name, stockStatus, userName } = equipment
+    const {_id, category, email, price, name, stockStatus, userName } = equipment
 
     return (
 
@@ -18,7 +18,7 @@ const EquipmentsTable = ({ equipment, idx }) => {
             <td>{price}</td>
             <td>{userName}</td>
             <td className='flex gap-3'>
-                <Link className='btn btn-sm rounded-md flex justify-center items-center gap-2 cursor-pointer'>
+                <Link to={`/equipments/${_id}`} className='btn btn-sm rounded-md flex justify-center items-center gap-2 cursor-pointer'>
                     <FaFile className=''></FaFile>
                 </Link>
                 {

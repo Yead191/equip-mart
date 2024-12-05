@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 
 const AddEquipment = () => {
     const { user } = useContext(AuthContext)
+    const navigate = useNavigate('/')
 
 
     const handleSubmit = e => {
@@ -55,6 +56,7 @@ const AddEquipment = () => {
                     timer: 1500
                 });
                 form.reset()
+                navigate('/allEquipment')
             })
     }
 
