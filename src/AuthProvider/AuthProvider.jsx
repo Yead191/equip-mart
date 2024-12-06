@@ -33,14 +33,6 @@ const AuthProvider = ({children}) => {
 
     }
     
-    //handle forget password
-    const [forgetMail, setForgetMail ] = useState('')
-
-
-
-    const forgetPassword = (resetEmail)=>{
-        return sendPasswordResetEmail(auth, resetEmail)
-    }
 
     //handle current User
     useEffect(()=>{
@@ -52,7 +44,7 @@ const AuthProvider = ({children}) => {
             unSubscribe()
         }
     } ,[])
-    // console.log(user);
+
 
     //logout
     const logOut = ()=>{
@@ -80,15 +72,6 @@ const AuthProvider = ({children}) => {
         setUser,
         loading,
         signInWithGoogle,
-        forgetPassword,
-        setForgetMail,
-        forgetMail,
-
-        
-        
-
-
-
 
 
     }

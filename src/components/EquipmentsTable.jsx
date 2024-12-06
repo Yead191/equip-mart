@@ -10,7 +10,6 @@ const EquipmentsTable = ({ equipment, idx , equipments , setEquipments}) => {
     const {_id, category, email, price, name, stockStatus, userName } = equipment
 
     const handleDeleteProduct = (_id) => {
-        console.log(_id);
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -27,7 +26,6 @@ const EquipmentsTable = ({ equipment, idx , equipments , setEquipments}) => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
                         if (data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",

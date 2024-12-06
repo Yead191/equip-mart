@@ -13,17 +13,13 @@ const Login = () => {
     },[])
 
     const location = useLocation()
-    const { login, signInWithGoogle, setUser, forgetPassword , setForgetMail } = useContext(AuthContext)
+    const { login, signInWithGoogle, } = useContext(AuthContext)
 
     const navigate = useNavigate()
     const emailRef = useRef()
 
     const [showPass, setShowPass] = useState(false)
 
-    const handleForgetPass = ()=>{
-        const resetEmail = emailRef.current.value
-        setForgetMail(resetEmail)
-    }
 
 
     const handleLoginWithGoogle = () => {
@@ -103,9 +99,6 @@ const Login = () => {
                         </div>
 
                        
-                        <Link to='/forgetPass' onClick={handleForgetPass}  href="#" className="text-sm text-purple-600 hover:underline mb-4 block">
-                            Forgot Your Password?
-                        </Link>
 
                         <div className='flex items-center justify-center'>
 

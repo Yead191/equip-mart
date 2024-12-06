@@ -7,7 +7,7 @@ const ScrollToTop = () => {
 
   useEffect(() => {
 
-    if (!pathname.startsWith("/category/")) {
+    if (!(pathname === "/" || pathname.startsWith("/category/"))) {
       window.scrollTo(0, 0);
     }
   }, [pathname]);

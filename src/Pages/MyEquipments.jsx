@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 const MyEquipments = () => {
     const { user } = useContext(AuthContext);
     const email = user.email;
-    console.log(email);
+
     const [myEquipment, setmyEquipment] = useState([]);
 
     useEffect(() => {
@@ -16,13 +16,13 @@ const MyEquipments = () => {
             .then((res) => res.json())
             .then((data) => {
                 setmyEquipment(data);
-                console.log(data);
+
             });
     }, []);
 
     
     const handleDeleteProduct = (_id) => {
-        console.log(_id);
+
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -39,7 +39,7 @@ const MyEquipments = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+
                         if (data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",

@@ -11,7 +11,6 @@ const AllEquipment = () => {
 
     const [equipments, setEquipments] = useState(loadedData)
 
-    console.log(loadedData);
     return (
 
         <div>
