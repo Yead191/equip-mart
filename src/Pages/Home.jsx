@@ -29,13 +29,13 @@ const Home = () => {
         <div className='my-8'>
           <Outlet></Outlet>
         </div>
-        <div className='mb-12 mt-20'>
+        <div className='mb-12 mt-20 bg-base-200 py-12'>
           {/* product */}
           {/* <div className="h-[280px] bg-[#2d248a] relative">
             
           </div> */}
           <h1 className='text-2xl lg:text-4xl font-bold text-center  '>Our Featured Products <span className='text-sm text-red-400'>(Hot)</span></h1>
-          <div className=' bg-[#d6e6f2]  py-4 md:p-6 rounded-lg shadow-xl w-11/12  md:w-10/12 mx-auto my-8'>
+          <div className=' bg-base-100  py-4 md:p-6 rounded-lg shadow-xl w-11/12  md:w-10/12 mx-auto my-8'>
           {/* #c4dce0 #393e6f*/}
 
             <FeaturedProducts data={data}></FeaturedProducts>

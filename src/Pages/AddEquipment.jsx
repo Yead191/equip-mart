@@ -38,7 +38,7 @@ const AddEquipment = () => {
             userName,
         }
         // console.log(equipmentDetails);
-        fetch('http://localhost:5000/equipments', {
+        fetch('https://equi-sports-server-six.vercel.app/equipments', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

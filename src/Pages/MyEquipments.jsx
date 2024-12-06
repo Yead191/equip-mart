@@ -12,7 +12,7 @@ const MyEquipments = () => {
     const [myEquipment, setmyEquipment] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/user?email=${user.email}`)
+        fetch(`https://equi-sports-server-six.vercel.app/user?email=${user.email}`)
             .then((res) => res.json())
             .then((data) => {
                 setmyEquipment(data);
@@ -34,7 +34,7 @@ const MyEquipments = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/equipments/${_id}`, {
+                fetch(`https://equi-sports-server-six.vercel.app/equipments/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
