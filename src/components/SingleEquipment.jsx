@@ -1,5 +1,6 @@
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 import { FaHeart, FaStar } from 'react-icons/fa';
 import { GoDotFill } from 'react-icons/go';
 import { RxCross1 } from 'react-icons/rx';
@@ -20,9 +21,22 @@ const SingleEquipment = () => {
         stockStatus,
         email,
         userName, } = product
+
+    const [isCart, setIsCart] = useState(false)
+    const [isWishlist, setIsWishlist] = useState(false)
+    const handleCart = () => {
+        toast.success('Product added to cart successfully!')
+        setIsCart(true)
+    }
+    const handleWishList = () => {
+        toast.success('Product added to Wishlist successfully!')
+        setIsWishlist(true)
+    }
+
+
     return (
         <div>
-            <div className="h-[280px] bg-[#2d248a] relative"> 
+            <div className="h-[280px] bg-[#2d248a] relative">
                 <h1 className='text-3xl lg:text-4xl font-bold text-center text-white pt-8'>Product Details</h1>
             </div>
 
@@ -46,7 +60,7 @@ const SingleEquipment = () => {
                     <div className="col-span-2 py-8 ">
                         <h1 className="font-bold text-3xl lg:text-4xl">{name}</h1>
                         <div className="flex items-center gap-5 my-6">
-                            {stockStatus.length > 0 ? (
+                            {stockStatus > 0 ? (
                                 <p className="flex items-center gap-2">
                                     <GoDotFill className="text-green-500" /> In Stock ({stockStatus})
                                 </p>
@@ -117,10 +131,17 @@ const SingleEquipment = () => {
                         </div>
 
                         <div className="mt-8  flex items-center gap-4">
-                            <button className="btn bg-[#2d248a] text-white px-7">
-                                Add to Cart
-                            </button>
-                            <button className="btn rounded-full">
+                            {
+                                stockStatus > 0 ?
+                                    <button disabled={isCart} onClick={handleCart} className="btn bg-[#2d248a] text-white px-7">
+                                        Add to Cart
+                                    </button>
+                                    :
+                                    <button disabled  className="btn bg-[#2d248a] text-white px-7 ">
+                                        Out of Stock
+                                    </button>
+                            }
+                            <button disabled={isWishlist} onClick={handleWishList} className="btn rounded-full">
                                 <FaHeart className="text-xl"></FaHeart>
                             </button>
                         </div>

@@ -11,13 +11,26 @@ const AllEquipment = () => {
 
     const [equipments, setEquipments] = useState(loadedData)
 
+    const [isSorted, setIsSorted] = useState(false)
+
+    const handleSort = ()=>{
+        const sort = [...equipments].sort((a,b)=>b.price - a.price)
+        setEquipments(sort)
+        setIsSorted(true)
+
+    }
+
     return (
 
         <div>
             <div className="h-[280px] bg-[#2d248a] relative">
                 <h1 className='text-3xl lg:text-4xl font-bold text-center text-white pt-8'>All Products</h1>
+                <div className='flex justify-end  md:w-10/12 mx-auto'>
+
+                    <button onClick={handleSort}  className={`btn  ${isSorted? 'active btn-wide' : 'btn-neutral'}`}>Sort By Price</button>
+                </div>
             </div>
-            <div className="overflow-x-auto my-8 w-11/12 mx-auto relative -mt-40 bg-base-100 p-6 rounded-lg shadow-lg">
+            <div className="overflow-x-auto my-8 w-11/12 mx-auto relative -mt-36 bg-base-100 p-6 rounded-lg shadow-lg">
 
                 <table className="table">
                     {/* head */}

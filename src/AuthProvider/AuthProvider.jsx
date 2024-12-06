@@ -32,6 +32,11 @@ const AuthProvider = ({children}) => {
         return signInWithPopup(auth, googleProvider)
 
     }
+    //update profile
+
+    const updateUser = (updatedData)=>{
+        return updateProfile(auth.currentUser, updatedData)
+    }
     
 
     //handle current User
@@ -53,22 +58,14 @@ const AuthProvider = ({children}) => {
     }
     
     
-    //update profile
-
-    const updateUser = (updatedData)=>{
-        return updateProfile(auth.currentUser, updatedData)
-    }
-    
-    
-    
     
    //global object 
     const authInfo = {
         SignUp,
         user,
         logOut,
-        login,
         updateUser,
+        login,
         setUser,
         loading,
         signInWithGoogle,
