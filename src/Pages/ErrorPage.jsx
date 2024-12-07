@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 
 const ErrorPage = () => {
+    useEffect(()=>{
+        document.title = 'Error | EquiSports'
+    },[])
     return (
         <div>
             <Navbar></Navbar>

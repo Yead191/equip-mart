@@ -6,6 +6,7 @@ import { PiSignIn, PiSignOut } from "react-icons/pi";
 
 import toast from 'react-hot-toast';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import { Fade } from 'react-awesome-reveal';
 
 
 const Navbar = () => {
@@ -25,9 +26,9 @@ const Navbar = () => {
 
     const links = <div className='lg:flex lg:gap-3 '>
         <li><NavLink to='/' >Home</NavLink></li>
-        <li><NavLink to='/allEquipment' >All Product</NavLink></li>
+        <li><NavLink to='/allEquipment' >All Products</NavLink></li>
         <li><NavLink to='/addEquipment' >Add Product</NavLink></li>
-        <li><NavLink to='/myEquipments' >My Product</NavLink></li>
+        <li><NavLink to='/myEquipments' >My Products</NavLink></li>
 
     </div >
     const [theme, setTheme] = useState("light");
@@ -67,11 +68,11 @@ const Navbar = () => {
                 <Link to='/' className="btn btn-ghost text-2xl font-bold italic">EquiSports</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                    {links}
-
-
-                </ul>
+                <Fade cascade damping={0.3}>
+                    <ul className="menu menu-horizontal px-1">
+                        {links}
+                    </ul>
+                </Fade>
             </div>
             <div className="navbar-end gap-3 ">
                 <button className="btn shadow-none" onClick={toggleTheme}>
@@ -127,7 +128,7 @@ const Navbar = () => {
                                 :
                                 <Link to='/login' className="btn btn-sm bg-base-100 md:hidden"><PiSignIn className='text-lg' /> Login</Link>
                         }
-                        {/* <Link to='/login' className="btn btn-sm bg-base-100 md:hidden"><PiSignIn className='text-lg' /> Login</Link> */}
+
 
 
                     </ul>
@@ -141,7 +142,7 @@ const Navbar = () => {
                             :
                             <Link to='/login' className="btn bg-base-100 "><PiSignIn className='text-lg' /> Login</Link>
                     }
-                    {/* <Link to='/login' className="btn bg-base-100 "><PiSignIn className='text-lg' /> Login</Link> */}
+
 
 
                 </div>

@@ -4,8 +4,12 @@ import EquipmentsTable from '../components/EquipmentsTable';
 import { FaEdit, FaFile } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { Fade } from 'react-awesome-reveal';
 
 const MyEquipments = () => {
+    useEffect(() => {
+        document.title = 'MyEquipments | EquiSports'
+    }, [])
     const { user } = useContext(AuthContext);
     const email = user.email;
 
@@ -61,48 +65,52 @@ const MyEquipments = () => {
     return (
         <div className="">
             <div className="h-[280px] bg-[#2d248a] relative">
-                <h1 className='text-3xl lg:text-4xl font-bold text-center text-white pt-8'>My Equipments</h1>
+                <Fade cascade damping={0.2}>
+                    <h1 className='text-3xl lg:text-4xl font-bold text-center text-white pt-8'>My Equipments</h1>
+                </Fade>
             </div>
 
 
-            <div className='w-full grid grid-cols-1 md:grid-cols-3 gap-8 overflow-x-auto my-8 md:w-10/12 mx-auto relative -mt-40 bg-base-100 rounded-lg px-10 py-12 shadow-xl '>
+            <Fade cascade>
+                <div className=' grid grid-cols-1 md:grid-cols-3 gap-8 overflow-x-auto my-8 w-11/12 md:w-10/12 mx-auto relative -mt-40 bg-base-100 rounded-lg px-5 md:px-10 py-12 shadow-xl '>
 
 
-                {
-                    myEquipment?.length > 0 ?
-                        myEquipment?.map((equipment) => (
-                            <div key={equipment._id}>
-                                <div class="flex flex-col items-center justify-center w-full  mx-auto transition hover:scale-105 duration-700 ">
-                                    <div class="w-full h-72 bg-gray-300 bg-center bg-cover rounded-lg shadow-md" >
-                                        <img className='w-full h-full object-cover overflow-hidden rounded-lg' src={equipment.photo} alt="" />
-                                    </div>
+                    {
+                        myEquipment?.length > 0 ?
+                            myEquipment?.map((equipment) => (
+                                <div key={equipment._id}>
+                                    <div class="flex flex-col items-center justify-center w-full  mx-auto transition hover:scale-105 duration-700 ">
+                                        <div class="w-full h-72 bg-gray-300 bg-center bg-cover rounded-lg shadow-md" >
+                                            <img className='w-full h-full object-cover overflow-hidden rounded-lg' src={equipment.photo} alt="" />
+                                        </div>
 
-                                    <div class="w-3/4 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-8/12 dark:bg-gray-800">
-                                        <h3 class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">{equipment.name}</h3>
+                                        <div class="w-3/4 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-8/12 dark:bg-gray-800">
+                                            <h3 class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">{equipment.name}</h3>
 
-                                        <div class="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700">
-                                            <span class="font-bold text-gray-800 dark:text-gray-200">৳{equipment.price}</span>
+                                            <div class="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700">
+                                                <span class="font-bold text-gray-800 dark:text-gray-200">৳{equipment.price}</span>
 
-                                            <div className='flex items-center gap-1'>
-                                                <Link to={`/equipments/${equipment._id}`} className='btn btn-xs text-xs text-white bg-black'><FaFile />
-                                                </Link>
-                                                <Link to={`/updateEquipment/${equipment?._id}`} className='btn btn-xs text-xs'><FaEdit />
-                                                </Link>
-                                                <button onClick={() => handleDeleteProduct(equipment?._id)} className='btn btn-xs text-xs btn-error text-white'>X</button>
+                                                <div className='flex items-center gap-1'>
+                                                    <Link to={`/equipments/${equipment._id}`} className='btn btn-xs text-xs text-white bg-black'><FaFile />
+                                                    </Link>
+                                                    <Link to={`/updateEquipment/${equipment?._id}`} className='btn btn-xs text-xs'><FaEdit />
+                                                    </Link>
+                                                    <button onClick={() => handleDeleteProduct(equipment?._id)} className='btn btn-xs text-xs btn-error text-white'>X</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                            ))
+                            :
+                            <div className='col-span-3'>
+                                <p className='text-red-400 font-semibold text-xl '>You don't have any Product! Please Add to see your Products.</p>
+                                <Link to={'/addEquipment'} className='btn bg-[#2d248a] text-white my-2 btn-wide'>Add Product</Link>
                             </div>
-                        ))
-                        :
-                        <div className='col-span-3'>
-                            <p className='text-red-400 font-semibold text-xl '>You don't have any Product! Please Add to see your Products.</p>
-                            <Link to={'/addEquipment'} className='btn bg-[#2d248a] text-white my-2 btn-wide'>Add Product</Link>
-                        </div>
-                }
+                    }
 
-            </div>
+                </div>
+            </Fade>
 
         </div>
     );

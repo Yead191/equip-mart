@@ -1,9 +1,13 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import { Fade } from 'react-awesome-reveal';
 
 const UpdateEquipment = () => {
+    useEffect(()=>{
+        document.title = 'UpdateEquipment | EquiSports'
+    },[])
     const { user } = useContext(AuthContext)
     // const [disable, setDisable] = useState(false)
     const navigate = useNavigate()
@@ -22,11 +26,7 @@ const UpdateEquipment = () => {
         email,
         userName, } = data
 
-    // if (email !== user.email) {
-    //     setDisable(true)
-    //     return
-
-    // }
+    
     const isDisabled = email !== user.email
 
 
@@ -87,7 +87,10 @@ const UpdateEquipment = () => {
     return (
         <div>
             <div className="h-[280px] bg-[#2d248a] relative">
+                <Fade cascade damping={0.2}>
+
                 <h2 className="text-3xl lg:text-4xl font-bold text-center text-white pt-8">Update {name} </h2>
+                </Fade>
             </div>
             <div className="w-11/12 md:w-10/12 mx-auto bg-[#F4F3F0] shadow rounded-lg py-8 px-3 md:p-16 my-16 relative -mt-40">
                 <button onClick={() => window.history.back()} className="text-blue-500 font-semibold mb-4">

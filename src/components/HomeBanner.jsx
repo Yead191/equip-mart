@@ -15,6 +15,7 @@ import img2 from '../assets/slider/gm.jpg'
 import img3 from '../assets/slider/kookaburra.jpg'
 import img4 from '../assets/slider/nb.jpg'
 import img5 from '../assets/slider/ventus.jpg'
+import img6 from '../assets/slider/img6.jpg'
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
@@ -40,6 +41,7 @@ export default function HomeBanner() {
         <SwiperSlide><img src={img3} alt="" /></SwiperSlide>
         <SwiperSlide><img src={img4} alt="" /></SwiperSlide>
         <SwiperSlide><img src={img5} alt="" /></SwiperSlide>
+        <SwiperSlide><img src={img6} alt="" /></SwiperSlide>
         
       </Swiper>
     </div>
