@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: (<>
-            <ScrollToTop></ScrollToTop>
+            
             <Root></Root>
         </>),
         errorElement: <ErrorPage></ErrorPage>,
@@ -38,7 +38,10 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addEquipment',
-                element: <PrivateRoute><AddEquipment></AddEquipment></PrivateRoute>
+                element: (<>
+                <ScrollToTop></ScrollToTop>
+                <PrivateRoute><AddEquipment></AddEquipment></PrivateRoute>
+                </>)
             },
             {
                 path: '/myEquipments',
@@ -59,12 +62,18 @@ const router = createBrowserRouter([
             },
             {
                 path: '/equipments/:id',
-                element: <PrivateRoute><SingleEquipment></SingleEquipment></PrivateRoute>,
+                element: (<>
+                <ScrollToTop></ScrollToTop>
+                <PrivateRoute><SingleEquipment></SingleEquipment></PrivateRoute>
+                </>),
                 loader: ({ params }) => fetch(`https://equi-sports-server-six.vercel.app/equipments/${params.id}`)
             },
             {
                 path: '/updateEquipment/:id',
-                element: <PrivateRoute><UpdateEquipment></UpdateEquipment></PrivateRoute>,
+                element: (<>
+                <ScrollToTop></ScrollToTop>
+                <PrivateRoute><UpdateEquipment></UpdateEquipment></PrivateRoute>
+                </>),
                 loader: ({ params }) => fetch(`https://equi-sports-server-six.vercel.app/equipments/${params.id}`)
             }
         ]

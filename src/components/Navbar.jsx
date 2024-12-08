@@ -200,7 +200,7 @@ const Navbar = () => {
                         <div className={`w-10 rounded-full hover:${user?.displayName}`} >
                             {
                                 user ?
-                                    <img title={user?.displayName || 'User'} className='w-10 h-10 object-cover overflow-hidden' src={user?.photoURL} alt="img" />
+                                    <img title={user?.displayName || 'User'} className='w-10 h-10 object-cover overflow-hidden' src={user?.photoURL} alt="" />
                                     :
 
                                     <img className='object-cover'
@@ -217,9 +217,7 @@ const Navbar = () => {
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                         <li className='pl-3 pt-1 font-semibold text-lg'>{user?.displayName}</li>
 
-                        <li>
-                            <Link to='/profile' className="justify-between"> Profile </Link>
-                        </li>
+                        
                         {
 
                             user && user?.email ?

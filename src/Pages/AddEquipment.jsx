@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -6,9 +7,9 @@ import { Fade } from 'react-awesome-reveal';
 
 
 const AddEquipment = () => {
-    useEffect(()=>{
+    useEffect(() => {
         document.title = 'AddEquipment | EquipMart'
-    },[])
+    }, [])
     const { user } = useContext(AuthContext)
     const navigate = useNavigate('/')
 
@@ -69,10 +70,14 @@ const AddEquipment = () => {
         <div>
             <div className="h-[280px] bg-[#2d248a] relative">
                 <Fade cascade damping={0.2}>
-                <h1 className='text-3xl lg:text-4xl font-bold text-center text-white pt-8'>Add New Item</h1>
+                    <h1 className='text-3xl lg:text-4xl font-bold text-center text-white pt-8'>Add New Item</h1>
                 </Fade>
             </div>
-            <div className="w-11/12 md:w-10/12 mx-auto bg-[#F4F3F0] shadow rounded-lg  py-8 px-3 md:p-16 my-16 relative -mt-40">
+            <motion.div
+                initial={{ y: '-100vh', opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1.5, ease: 'easeInOut' }}
+                className="w-11/12 md:w-10/12 mx-auto bg-[#F4F3F0] shadow rounded-lg  py-8 px-3 md:p-16 my-16 relative -mt-40">
                 <button onClick={() => window.history.back()} className="text-blue-500 font-semibold mb-4">
                     &larr; Go Back
                 </button>
@@ -210,7 +215,7 @@ const AddEquipment = () => {
                         </button>
                     </div>
                 </form>
-            </div>
+            </motion.div>
 
         </div>
     );

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-
+import { motion } from 'framer-motion';
 import { FcGoogle } from 'react-icons/fc';
 import toast from 'react-hot-toast';
 import { FaEye, FaEyeSlash } from 'react-icons/fa6';
@@ -23,7 +23,7 @@ const Register = () => {
     const handleLoginWithGoogle = () => {
         signInWithGoogle()
             .then(res => {
-
+                // console.log(res.user)
                 navigate(location?.state ? location.state : '/')
                 toast.success(`Successfully logged in as: ${res.user.displayName}`)
 
@@ -94,7 +94,11 @@ const Register = () => {
     }
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100">
+        <motion.div
+            initial={{ y: '-100vh', opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1.2, ease: 'easeInOut' }}
+            className="flex items-center justify-center min-h-screen bg-gray-100">
             <div className="flex flex-col lg:flex-row shadow-lg rounded-lg bg-white max-w-4xl w-full">
                 {/* Left Section */}
                 <div className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white p-8 lg:w-1/2 flex flex-col justify-center items-center rounded-l-lg radius5xl">
@@ -164,7 +168,7 @@ const Register = () => {
 
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

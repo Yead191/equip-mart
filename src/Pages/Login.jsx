@@ -2,15 +2,17 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import toast from 'react-hot-toast';
+import { motion } from 'framer-motion';
+
 import { FaEye, FaEyeSlash } from 'react-icons/fa6';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 
 
 const Login = () => {
 
-    useEffect(()=>{
-        document.title = 'Login | EquipMart'
-    },[])
+    useEffect(() => {
+        document.title = 'Login | EquiSports'
+    }, [])
 
     const location = useLocation()
     const { login, signInWithGoogle, } = useContext(AuthContext)
@@ -25,8 +27,6 @@ const Login = () => {
     const handleLoginWithGoogle = () => {
         signInWithGoogle()
             .then(res => {
-                // console.log(res.user)
-                // setUser(res.user)
                 toast.success(`Successfully logged in as: ${res.user.displayName}`)
                 navigate(location?.state ? location.state : '/')
 
@@ -62,7 +62,11 @@ const Login = () => {
 
     }
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100">
+        <motion.div
+            initial={{ y: '-100vh', opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1.2, ease: 'easeInOut' }}
+            className="flex items-center justify-center min-h-screen bg-gray-100">
             <div className="flex flex-col lg:flex-row shadow-lg rounded-lg bg-white max-w-4xl w-full">
                 {/* Left Section */}
                 <div className="p-8 lg:w-1/2 flex flex-col justify-center items-center">
@@ -98,7 +102,7 @@ const Login = () => {
                             </button>
                         </div>
 
-                       
+
 
                         <div className='flex items-center justify-center'>
 
@@ -120,7 +124,7 @@ const Login = () => {
                     </Link>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

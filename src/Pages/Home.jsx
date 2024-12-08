@@ -8,9 +8,11 @@ import Lottie from 'lottie-react';
 import { Fade } from 'react-awesome-reveal';
 import PaymentAndSocialSection from '../components/PaymentAndSocialSection';
 import WhatWeOffer from '../components/WhatWeOffer';
+// import { AuthContext } from '../AuthProvider/AuthProvider';
 
 
 const Home = () => {
+  // const { user } = useContext(AuthContext)
   useEffect(() => {
     document.title = 'Home | EquipMart'
   }, [])
@@ -44,6 +46,7 @@ const Home = () => {
             <Lottie className='w-20 h-20' animationData={shop} />
           </div>
         </Fade>
+
 
 
 
