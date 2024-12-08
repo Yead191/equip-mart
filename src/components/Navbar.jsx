@@ -52,7 +52,7 @@ const Navbar = () => {
                 <div className="drawer lg:hidden">
                     <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                     <div className="drawer-content">
-                        {/* Navbar button to open the drawer */}
+
                         <label
                             htmlFor="my-drawer-2"
                             tabIndex={0}

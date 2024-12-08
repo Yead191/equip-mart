@@ -42,7 +42,7 @@ function FeaturedProducts() {
         <div className="slider-container my-6">
             <Slider {...settings}>
                 {products?.map((equipment) => (
-                    <div key={equipment._id} className="px-3"> {/* Add padding for gaps */}
+                    <div key={equipment._id} className="px-3"> 
                         <div className="flex flex-col items-center justify-center w-full mx-auto transition duration-700">
                             <div className="w-full h-72 bg-gray-300 bg-center bg-cover rounded-lg shadow-md">
                                 <img
