@@ -51,7 +51,7 @@ const EquipmentsTable = ({ equipment, idx , equipments , setEquipments}) => {
             <td>{name}</td>
             <td>{category}</td>
             <td>{stockStatus}</td>
-            <td>{price}</td>
+            <td>৳ {price}</td>
             <td>{userName}</td>
             <td className='flex gap-3'>
                 <Link to={`/equipments/${_id}`} className='btn btn-sm rounded-md flex justify-center items-center gap-2 cursor-pointer'>

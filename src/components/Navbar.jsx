@@ -109,7 +109,7 @@ const Navbar = () => {
 
                             {/* Menu Items */}
                             <ul className="menu">
-                                <li>
+                                <li className='text-lg font-light'>
                                     <NavLink
                                         to="/"
                                         onClick={() => (document.getElementById("my-drawer-2").checked = false)}
@@ -117,7 +117,7 @@ const Navbar = () => {
                                         Home
                                     </NavLink>
                                 </li>
-                                <li>
+                                <li className='text-lg font-light'>
                                     <NavLink
                                         to="/allEquipment"
                                         onClick={() => (document.getElementById("my-drawer-2").checked = false)}
@@ -125,7 +125,7 @@ const Navbar = () => {
                                         All Products
                                     </NavLink>
                                 </li>
-                                <li>
+                                <li className='text-lg font-light'>
                                     <NavLink
                                         to="/addEquipment"
                                         onClick={() => (document.getElementById("my-drawer-2").checked = false)}
@@ -135,7 +135,7 @@ const Navbar = () => {
                                 </li>
                                 {
                                     user && user.email && 
-                                    <li>
+                                    <li className='text-lg font-light'>
                                         <NavLink
                                             to="/myEquipments"
                                             onClick={() => (document.getElementById("my-drawer-2").checked = false)}
