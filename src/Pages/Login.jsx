@@ -9,7 +9,7 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 const Login = () => {
 
     useEffect(()=>{
-        document.title = 'Login | EquiSports'
+        document.title = 'Login | EquipMart'
     },[])
 
     const location = useLocation()

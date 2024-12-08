@@ -8,7 +8,7 @@ import { Fade } from 'react-awesome-reveal';
 
 const MyEquipments = () => {
     useEffect(() => {
-        document.title = 'MyEquipments | EquiSports'
+        document.title = 'MyEquipments | EquipMart'
     }, [])
     const { user } = useContext(AuthContext);
     const email = user.email;

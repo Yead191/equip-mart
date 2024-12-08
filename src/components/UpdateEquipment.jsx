@@ -6,7 +6,7 @@ import { Fade } from 'react-awesome-reveal';
 
 const UpdateEquipment = () => {
     useEffect(()=>{
-        document.title = 'UpdateEquipment | EquiSports'
+        document.title = 'UpdateEquipment | EquipMart'
     },[])
     const { user } = useContext(AuthContext)
     // const [disable, setDisable] = useState(false)

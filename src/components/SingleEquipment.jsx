@@ -62,7 +62,7 @@ const SingleEquipment = () => {
                         />
                     </div>
                     <div className="col-span-2 py-8 ">
-                        <Fade cascade damping={0.2}>
+                        <Fade cascade triggerOnce delay={300}>
 
                             <h1 className="font-bold text-3xl lg:text-4xl">{name}</h1>
                             <div className="flex items-center gap-5 my-6">

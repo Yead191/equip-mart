@@ -12,7 +12,7 @@ import WhatWeOffer from '../components/WhatWeOffer';
 
 const Home = () => {
   useEffect(() => {
-    document.title = 'Home | EquiSports'
+    document.title = 'Home | EquipMart'
   }, [])
   const data = useLoaderData()
   return (

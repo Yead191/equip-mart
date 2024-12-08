@@ -8,7 +8,7 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Register = () => {
     useEffect(() => {
-        document.title = 'Register | EquiSports'
+        document.title = 'Register | EquipMart'
     }, [])
 
     const [showPass, setShowPass] = useState(false)

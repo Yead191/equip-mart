@@ -8,7 +8,7 @@ import { Fade } from 'react-awesome-reveal';
 
 const AllEquipment = () => {
     useEffect(()=>{
-        document.title = 'AllEquipment | EquiSports'
+        document.title = 'AllEquipment | EquipMart'
     },[])
     const { user } = useContext(AuthContext)
     const loadedData = useLoaderData()

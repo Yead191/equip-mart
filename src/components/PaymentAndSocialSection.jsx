@@ -58,13 +58,13 @@ const PaymentAndSocialSection = () => {
                 </div>
 
                 <div className="flex justify-center gap-4">
-                    <FaFacebookF className="text-blue-600 text-4xl" />
-                    <FaTwitter className="text-blue-400 text-4xl" />
-                    <FaInstagram className="text-pink-500 text-4xl" />
-                    <FaPinterestP className="text-red-600 text-4xl" />
-                    <FaYoutube className="text-red-500 text-4xl" />
-                    <FaTiktok className="text-black text-4xl" />
-                    <FaTumblr className="text-black text-4xl" />
+                    <FaFacebookF className="text-blue-600 text-2xl md:text-4xl" />
+                    <FaTwitter className="text-blue-400 text-2xl md:text-4xl" />
+                    <FaInstagram className="text-pink-500 text-2xl md:text-4xl" />
+                    <FaPinterestP className="text-red-600 text-2xl md:text-4xl" />
+                    <FaYoutube className="text-red-500 text-2xl md:text-4xl" />
+                    <FaTiktok className="text-black text-2xl md:text-4xl" />
+                    <FaTumblr className="text-black text-2xl md:text-4xl" />
 
                 </div>
 

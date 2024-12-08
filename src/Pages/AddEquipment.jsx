@@ -7,7 +7,7 @@ import { Fade } from 'react-awesome-reveal';
 
 const AddEquipment = () => {
     useEffect(()=>{
-        document.title = 'AddEquipment | EquiSports'
+        document.title = 'AddEquipment | EquipMart'
     },[])
     const { user } = useContext(AuthContext)
     const navigate = useNavigate('/')
