@@ -67,7 +67,7 @@ function FeaturedProducts() {
                                             to={`/equipments/${equipment._id}`}
                                             className="btn btn-xs text-xs text-white bg-black hover:text-black"
                                         >
-                                            <FaFile /> View More
+                                            <FaFile /> View Details
                                         </Link>
                                     </div>
                                 </div>

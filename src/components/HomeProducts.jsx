@@ -33,7 +33,7 @@ const HomeProducts = () => {
 
                                             <div className='flex items-center gap-1'>
                                                 <Link to={`/equipments/${equipment._id}`} className='btn btn-xs text-xs text-white bg-black hover:text-black'><FaFile />
-                                                    View More</Link>
+                                                    View Details</Link>
 
                                             </div>
                                         </div>

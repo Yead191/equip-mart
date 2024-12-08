@@ -90,12 +90,13 @@ const Home = () => {
 
 
       </div>
-      <div>
-        <PaymentAndSocialSection></PaymentAndSocialSection>
-      </div>
       <div className='my-8'>
         <WhatWeOffer></WhatWeOffer>
       </div>
+      <div>
+        <PaymentAndSocialSection></PaymentAndSocialSection>
+      </div>
+
     </div>
   );
 };
