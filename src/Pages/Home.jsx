@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import HomeBanner from '../components/HomeBanner';
-import { Link, Outlet, useLoaderData } from 'react-router-dom';
+import { Link, Outlet, useLoaderData, useLocation } from 'react-router-dom';
 import FeaturedProducts from '../components/FeaturedProducts';
 import shop from '../shop.json'
 import GirlShop from '../girlShop.json'
@@ -15,6 +15,18 @@ const Home = () => {
     document.title = 'Home | EquipMart'
   }, [])
   const data = useLoaderData()
+  const location = useLocation();
+  const outletRef = useRef(null);
+
+  const isMobileDevice = () => {
+    return window.matchMedia('(max-width: 768px)').matches;
+  };
+
+  useEffect(() => {
+    if (isMobileDevice() && location.pathname.startsWith('/category/')) {
+      outletRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [location]);
   return (
     <div>
       <HomeBanner></HomeBanner>
@@ -49,21 +61,27 @@ const Home = () => {
           <h1 className='text-center font-semibold text-3xl '>Shop By Categories</h1>
         </Fade>
         <div className='my-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-4 p-2 md:gap-6 md:p-6'>
-          {
-            data?.map(category => <Link to={`/category/${category.categoryName}`} key={category.categoryId} class="group relative overflow-hidden rounded-lg shadow-lg transit md:hover:scale-105 duration-1000 cursor-pointer">
+          {data?.map(category => (
+            <Link
+              to={`/category/${category.categoryName}`}
+              key={category.categoryId}
+              className="group relative overflow-hidden rounded-lg shadow-lg transit md:hover:scale-105 duration-1000 cursor-pointer"
+            >
               <img
                 src={category?.categoryImage}
                 alt={category?.categoryImage}
-                class="w-full h-48 object-cover transition-transform duration-300 ease-out group-hover:scale-110"
+                className="w-full h-48 object-cover transition-transform duration-300 ease-out group-hover:scale-110"
               />
-              <div class="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <p class="absolute bottom-4 left-4 text-white text-lg font-semibold">{category.categoryName}</p>
-            </Link>)
-          }
-
+              <div className="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <p className="absolute bottom-4 left-4 text-white text-lg font-semibold">
+                {category.categoryName}
+              </p>
+            </Link>
+          ))}
         </div>
 
-        <div className='my-8'>
+        {/* Outlet Section */}
+        <div className='my-8' ref={outletRef}>
           <Outlet></Outlet>
         </div>
 

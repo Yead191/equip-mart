@@ -29,7 +29,10 @@ const Navbar = () => {
         <li><NavLink to='/' >Home</NavLink></li>
         <li><NavLink to='/allEquipment' >All Products</NavLink></li>
         <li><NavLink to='/addEquipment' >Add Product</NavLink></li>
-        <li><NavLink to='/myEquipments' >My Products</NavLink></li>
+        {
+
+            user && user.email && <li><NavLink to='/myEquipments' >My Products</NavLink></li>
+        }
 
     </div >
     const [theme, setTheme] = useState("light");
@@ -130,14 +133,17 @@ const Navbar = () => {
                                         Add Product
                                     </NavLink>
                                 </li>
-                                <li>
-                                    <NavLink
-                                        to="/myEquipments"
-                                        onClick={() => (document.getElementById("my-drawer-2").checked = false)}
-                                    >
-                                        My Products
-                                    </NavLink>
-                                </li>
+                                {
+                                    user && user.email && 
+                                    <li>
+                                        <NavLink
+                                            to="/myEquipments"
+                                            onClick={() => (document.getElementById("my-drawer-2").checked = false)}
+                                        >
+                                            My Products
+                                        </NavLink>
+                                    </li>
+                                }
 
                             </ul>
                             {
