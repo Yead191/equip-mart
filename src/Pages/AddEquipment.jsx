@@ -11,7 +11,7 @@ const AddEquipment = () => {
         document.title = 'AddEquipment | EquipMart'
     }, [])
     const { user } = useContext(AuthContext)
-    const navigate = useNavigate('/')
+    const navigate = useNavigate()
 
 
     const handleSubmit = e => {
@@ -61,7 +61,7 @@ const AddEquipment = () => {
                     timer: 1500
                 });
                 form.reset()
-                navigate('/allEquipment')
+                navigate('/myEquipments')
             })
     }
 
@@ -70,7 +70,7 @@ const AddEquipment = () => {
         <div>
             <div className="h-[280px] bg-[#2d248a] relative">
                 <Fade cascade damping={0.2}>
-                    <h1 className='text-3xl lg:text-4xl font-bold text-center text-white pt-8'>Add New Item</h1>
+                    <h1 style={{fontVariant: 'small-caps'}} className='text-3xl lg:text-4xl font-bold text-center text-white pt-8'>Add New Item</h1>
                 </Fade>
             </div>
             <motion.div

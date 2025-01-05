@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: (<>
-            
+            <ScrollToTop></ScrollToTop>
             <Root></Root>
         </>),
         errorElement: <ErrorPage></ErrorPage>,
@@ -27,20 +27,20 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: ()=> fetch('../categories.json'),
+                loader: () => fetch('../categories.json'),
                 children: [
                     {
                         path: '/category/:category',
                         element: <HomeProducts></HomeProducts>,
-                        loader: ({params})=> fetch(`https://equi-sports-server-six.vercel.app/category/${params.category}`)
+                        loader: ({ params }) => fetch(`https://equi-sports-server-six.vercel.app/category/${params.category}`)
                     }
                 ]
             },
             {
                 path: '/addEquipment',
                 element: (<>
-                <ScrollToTop></ScrollToTop>
-                <PrivateRoute><AddEquipment></AddEquipment></PrivateRoute>
+
+                    <PrivateRoute><AddEquipment></AddEquipment></PrivateRoute>
                 </>)
             },
             {
@@ -63,16 +63,16 @@ const router = createBrowserRouter([
             {
                 path: '/equipments/:id',
                 element: (<>
-                <ScrollToTop></ScrollToTop>
-                <PrivateRoute><SingleEquipment></SingleEquipment></PrivateRoute>
+
+                    <SingleEquipment></SingleEquipment>
                 </>),
                 loader: ({ params }) => fetch(`https://equi-sports-server-six.vercel.app/equipments/${params.id}`)
             },
             {
                 path: '/updateEquipment/:id',
                 element: (<>
-                <ScrollToTop></ScrollToTop>
-                <PrivateRoute><UpdateEquipment></UpdateEquipment></PrivateRoute>
+                    <ScrollToTop></ScrollToTop>
+                    <PrivateRoute><UpdateEquipment></UpdateEquipment></PrivateRoute>
                 </>),
                 loader: ({ params }) => fetch(`https://equi-sports-server-six.vercel.app/equipments/${params.id}`)
             }

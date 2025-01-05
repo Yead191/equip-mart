@@ -78,7 +78,7 @@ const UpdateEquipment = () => {
                         timer: 1500
                     })
                     form.reset()
-                    navigate('/allEquipment')
+                    navigate('/myEquipments')
 
                 }
             })

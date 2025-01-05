@@ -21,7 +21,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 export default function HomeBanner() {
   return (
-    <div className='my-4'>
+    <div className='my-1'>
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

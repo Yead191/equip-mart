@@ -28,7 +28,12 @@ const Navbar = () => {
     const links = <div className='lg:flex lg:gap-3 '>
         <li><NavLink to='/' >Home</NavLink></li>
         <li><NavLink to='/allEquipment' >All Products</NavLink></li>
-        <li><NavLink to='/addEquipment' >Add Product</NavLink></li>
+        {
+            user && user.email &&
+            <li><NavLink to='/addEquipment' >Add Product</NavLink></li>
+
+        }
+
         {
 
             user && user.email && <li><NavLink to='/myEquipments' >My Products</NavLink></li>
@@ -134,7 +139,7 @@ const Navbar = () => {
                                     </NavLink>
                                 </li>
                                 {
-                                    user && user.email && 
+                                    user && user.email &&
                                     <li className='text-lg font-light'>
                                         <NavLink
                                             to="/myEquipments"
@@ -157,7 +162,7 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                <Link to={'/'} className="btn btn-ghost text-2xl font-bold italic">
+                <Link style={{fontVariant: 'small-caps'}} to={'/'} className="btn btn-ghost text-2xl font-bold lg:text-3xl ">
                     EquipMart
                 </Link>
             </div>
@@ -173,7 +178,7 @@ const Navbar = () => {
                 </Fade>
             </div>
             <div className="navbar-end gap-3 ">
-                <button className="btn shadow-none" onClick={toggleTheme}>
+                <button className="btn btn-sm rounded-full shadow-none" onClick={toggleTheme}>
                     {theme === "light" ?
                         <svg
                             className="swap-off h-5 w-5 md:h-6 md:w-6 fill-current"
@@ -217,7 +222,7 @@ const Navbar = () => {
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                         <li className='pl-3 pt-1 font-semibold text-lg'>{user?.displayName}</li>
 
-                        
+
                         {
 
                             user && user?.email ?
