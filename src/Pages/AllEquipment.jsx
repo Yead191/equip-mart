@@ -96,7 +96,7 @@ const AllEquipment = () => {
                     initial={{ y: '-100vh', opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 1.4, ease: 'easeInOut' }}
-                    className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-8 overflow-x-auto my-8 w-11/12 md:w-10/12 mx-auto relative -mt-36 bg-base-100 rounded-lg px-5 md:px-10 py-12 shadow-xl"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 overflow-x-auto my-8 w-11/12 md:w-10/12 mx-auto relative -mt-36 bg-base-100 rounded-lg px-5 md:px-10 py-12 shadow-xl"
                 >
                     {equipments.map((equipment) => (
                         <div key={equipment._id}>

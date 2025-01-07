@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const WhyChooseUs = () => {
     const features = [
@@ -70,9 +71,9 @@ const WhyChooseUs = () => {
                 </div>
 
                 <div className="text-center mt-10">
-                    <button className="btn btn-primary bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
+                    <Link to={'/allEquipment'} className="btn btn-primary bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
                         Explore Our Collection
-                    </button>
+                    </Link>
                 </div>
             </div>
         </section>

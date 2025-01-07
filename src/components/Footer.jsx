@@ -15,7 +15,7 @@ const Footer = () => {
                 </aside>
                 <nav>
                     <h6 className="footer-title">Quick Links</h6>
-                    <Link to={'/'}  className="link link-hover">Home</Link>
+                    <Link to={'/'} className="link link-hover">Home</Link>
                     <Link to={'/allEquipment'} className="link link-hover">Equipments</Link>
                     <Link to={'/about'} className="link link-hover">About Us</Link>
                     <Link to={'/contact'} className="link link-hover">Contact Us</Link>
@@ -27,7 +27,7 @@ const Footer = () => {
                     <Link to={'/addEquipment'} className="link link-hover">Add Equipment</Link>
                     <Link to={'/myEquipments'} className="link link-hover">My Equipments</Link>
                 </nav>
-                
+
                 <nav>
                     <h6 className="footer-title">Social</h6>
                     <div className="grid grid-flow-col gap-4">
@@ -69,7 +69,7 @@ const Footer = () => {
             </footer>
             <footer className="footer footer-center bg-base-300 text-base-content p-4">
                 <aside>
-                    <p>Copyright © {new Date().getFullYear()} - This Project is Developed by Yead</p>
+                    <p>Copyright © {new Date().getFullYear()} - This Project is Developed By Yead</p>
                 </aside>
             </footer>
         </>
