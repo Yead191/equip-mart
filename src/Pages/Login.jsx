@@ -66,13 +66,13 @@ const Login = () => {
             initial={{ y: '-100vh', opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1.2, ease: 'easeInOut' }}
-            className="flex items-center justify-center min-h-screen bg-gray-100">
-            <div className="flex flex-col lg:flex-row shadow-lg rounded-lg bg-white max-w-4xl w-full">
+            className="flex items-center justify-center min-h-screen bg-base-200">
+            <div className="flex flex-col lg:flex-row shadow-lg rounded-lg bg-base-100 max-w-4xl w-full">
                 {/* Left Section */}
                 <div className="p-8 lg:w-1/2 flex flex-col justify-center items-center">
-                    <h2 className="text-3xl font-bold mb-4 text-gray-800">Sign In</h2>
+                    <h2 className="text-3xl font-bold mb-4 ">Sign In</h2>
                     <div className="flex gap-3 mb-6">
-                        <button onClick={handleLoginWithGoogle} className="bg-gray-200 hover:bg-gray-300 rounded-xl px-5 h-10 flex  gap-3 items-center justify-center">
+                        <button onClick={handleLoginWithGoogle} className="bg-base-200 shadow-md hover:bg-gray-300 rounded-xl px-5 h-10 flex  gap-3 items-center justify-center">
                             <FcGoogle /> Sign in With Google
                         </button>
 

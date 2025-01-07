@@ -8,6 +8,7 @@ import Lottie from 'lottie-react';
 import { Fade } from 'react-awesome-reveal';
 import PaymentAndSocialSection from '../components/PaymentAndSocialSection';
 import WhatWeOffer from '../components/WhatWeOffer';
+import WhyChooseUs from '../components/WhyChooseUs';
 // import { AuthContext } from '../AuthProvider/AuthProvider';
 
 
@@ -96,6 +97,7 @@ const Home = () => {
       <div>
         <PaymentAndSocialSection></PaymentAndSocialSection>
       </div>
+      <WhyChooseUs></WhyChooseUs>
 
     </div>
   );

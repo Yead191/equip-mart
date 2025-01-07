@@ -14,6 +14,8 @@ import UpdateEquipment from '../components/UpdateEquipment';
 import ScrollToTop from '../components/ScrollToTop';
 import ErrorPage from '../Pages/ErrorPage';
 import HomeProducts from '../components/HomeProducts';
+import ContactUs from '../Pages/ContactUs';
+import About from '../Pages/About';
 
 const router = createBrowserRouter([
     {
@@ -75,7 +77,15 @@ const router = createBrowserRouter([
                     <PrivateRoute><UpdateEquipment></UpdateEquipment></PrivateRoute>
                 </>),
                 loader: ({ params }) => fetch(`https://equi-sports-server-six.vercel.app/equipments/${params.id}`)
-            }
+            },
+            {
+                path: '/contact',
+                element: <ContactUs></ContactUs>
+            },
+            {
+                path: '/about',
+                element: <About></About>
+            },
         ]
     }
 ])

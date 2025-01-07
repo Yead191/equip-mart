@@ -7,6 +7,7 @@ import { PiSignIn, PiSignOut } from "react-icons/pi";
 import toast from 'react-hot-toast';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { Fade } from 'react-awesome-reveal';
+import logo from '../assets/logo2.png'
 
 
 const Navbar = () => {
@@ -33,11 +34,12 @@ const Navbar = () => {
             <li><NavLink to='/addEquipment' >Add Product</NavLink></li>
 
         }
-
         {
 
             user && user.email && <li><NavLink to='/myEquipments' >My Products</NavLink></li>
         }
+        <li><NavLink to='/about' >About</NavLink></li>
+        <li><NavLink to='/contact' >Contact Us</NavLink></li>
 
     </div >
     const [theme, setTheme] = useState("light");
@@ -114,7 +116,7 @@ const Navbar = () => {
 
                             {/* Menu Items */}
                             <ul className="menu">
-                                <li className='text-lg font-light'>
+                                <li className=' font-light'>
                                     <NavLink
                                         to="/"
                                         onClick={() => (document.getElementById("my-drawer-2").checked = false)}
@@ -122,7 +124,7 @@ const Navbar = () => {
                                         Home
                                     </NavLink>
                                 </li>
-                                <li className='text-lg font-light'>
+                                <li className=' font-light'>
                                     <NavLink
                                         to="/allEquipment"
                                         onClick={() => (document.getElementById("my-drawer-2").checked = false)}
@@ -130,17 +132,20 @@ const Navbar = () => {
                                         All Products
                                     </NavLink>
                                 </li>
-                                <li className='text-lg font-light'>
-                                    <NavLink
-                                        to="/addEquipment"
-                                        onClick={() => (document.getElementById("my-drawer-2").checked = false)}
-                                    >
-                                        Add Product
-                                    </NavLink>
-                                </li>
                                 {
                                     user && user.email &&
-                                    <li className='text-lg font-light'>
+                                    <li className=' font-light'>
+                                        <NavLink
+                                            to="/addEquipment"
+                                            onClick={() => (document.getElementById("my-drawer-2").checked = false)}
+                                        >
+                                            Add Product
+                                        </NavLink>
+                                    </li>
+                                }
+                                {
+                                    user && user.email &&
+                                    <li className=' font-light'>
                                         <NavLink
                                             to="/myEquipments"
                                             onClick={() => (document.getElementById("my-drawer-2").checked = false)}
@@ -149,6 +154,22 @@ const Navbar = () => {
                                         </NavLink>
                                     </li>
                                 }
+                                <li className=' font-light'>
+                                    <NavLink
+                                        to="/about"
+                                        onClick={() => (document.getElementById("my-drawer-2").checked = false)}
+                                    >
+                                        About Us
+                                    </NavLink>
+                                </li>
+                                <li className=' font-light'>
+                                    <NavLink
+                                        to="/contact"
+                                        onClick={() => (document.getElementById("my-drawer-2").checked = false)}
+                                    >
+                                        Contact Us
+                                    </NavLink>
+                                </li>
 
                             </ul>
                             {
@@ -162,8 +183,13 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                <Link style={{fontVariant: 'small-caps'}} to={'/'} className="btn btn-ghost text-2xl font-bold lg:text-3xl ">
-                    EquipMart
+                <Link style={{ fontVariant: 'small-caps' }} to={'/'} className="btn btn-ghost text-2xl font-bold lg:text-3xl ">
+                    <div className='flex justify-center items-center gap-3 ml-9 md:ml-0'>
+                        <img className='w-[40px]' src={logo} alt="" />
+                        <p>
+                            EquipMart
+                        </p>
+                    </div>
                 </Link>
             </div>
 
