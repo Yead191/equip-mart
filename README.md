@@ -1,5 +1,13 @@
 # EquipMart - Cricket Equipment Store
 
+###
+
+<div align="center">
+  <img height="400" src="https://i.ibb.co.com/BBsRNHd/Screenshot-2025-01-08-at-2-39-46-PM.png"  />
+</div>
+
+###
+
 EquipMart is a modern and responsive web application for managing and selling cricket equipment. The application is built using the latest web development technologies and offers features like user authentication, product management, and personalized access controls. 
 
 ## Features
